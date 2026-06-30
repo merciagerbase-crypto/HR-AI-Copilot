@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>People Manager Copilot</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="topbar">
+    <a href="../" class="brand">HR + AI Portfolio</a>
+    <span class="environment">Interactive prototype · synthetic case</span>
+  </header>
+
+  <main class="shell">
+    <section class="intro">
+      <p class="eyebrow">PRODUCT 01 · MANAGER ENABLEMENT</p>
+      <h1>People Manager Copilot</h1>
+      <p>Help managers prepare for difficult people conversations without outsourcing judgment. The product structures facts, suggests a conversation plan and flags specialist review when needed.</p>
+      <div class="guardrail"><span>Human decision required</span><span>•</span><span>Guidance only</span><span>•</span><span>Escalates sensitive cases</span></div>
+    </section>
+
+    <div class="layout">
+      <section class="panel form-panel" aria-label="Case context">
+        <div class="section-title"><div><p class="eyebrow">STEP 1</p><h2>Describe the situation</h2></div><span class="badge">Manager input</span></div>
+
+        <label for="caseType">What do you need help with?</label>
+        <select id="caseType">
+          <option value="performance">Performance concern</option>
+          <option value="promotion">Promotion readiness</option>
+          <option value="conflict">Team conflict</option>
+          <option value="compensation">Compensation request</option>
+        </select>
+
+        <label for="stage">Where are you in the process?</label>
+        <select id="stage">
+          <option value="first">Preparing for the first conversation</option>
+          <option value="followup">Preparing for a follow-up</option>
+          <option value="decision">Preparing a recommendation for HR</option>
+        </select>
+
+        <label for="context">Facts you want the copilot to consider</label>
+        <textarea id="context" rows="8">Account Executive, 14 months in role. Results have been below target for two consecutive months after a territory change. The manager has documented weekly pipeline reviews and wants to understand root causes before discussing a formal performance plan.</textarea>
+        <p class="hint">Use factual, work-related context. Do not include health information, protected characteristics or unverified allegations.</p>
+
+        <div class="checklist" aria-label="Risk flags">
+          <p>Does the case involve any of these?</p>
+          <label><input type="checkbox" value="harassment" /> Harassment, discrimination or retaliation allegation</label>
+          <label><input type="checkbox" value="medical" /> Medical, accommodation or leave information</label>
+          <label><input type="checkbox" value="legal" /> Legal claim, union matter or compliance concern</label>
+          <label><input type="checkbox" value="safety" /> Safety, violence or self-harm concern</label>
+        </div>
+
+        <button id="generate">Generate manager brief <span>→</span></button>
+        <p class="demo-note">This demo uses preset product logic, not a live LLM. A production version would use approved policies, retrieval and a reviewed model workflow.</p>
+      </section>
+
+      <section class="panel output-panel" aria-live="polite">
+        <div class="section-title"><div><p class="eyebrow">STEP 2</p><h2>Manager brief</h2></div><span id="status" class="badge neutral">Ready</span></div>
+        <div id="empty" class="empty-state">
+          <div class="empty-icon">✦</div>
+          <h3>A focused brief, not a generic chatbot answer.</h3>
+          <p>Generate a structured case summary, conversation plan, escalation guidance and next steps.</p>
+        </div>
+        <div id="result" hidden>
+          <div id="riskBox" class="risk-box"></div>
+          <article class="result-section">
+            <h3>Case summary</h3>
+            <p id="summary"></p>
+          </article>
+          <article class="result-section two-col">
+            <div><h3>Objective</h3><p id="objective"></p></div>
+            <div><h3>What to clarify</h3><ul id="clarify"></ul></div>
+          </article>
+          <article class="result-section">
+            <h3>Suggested opening</h3>
+            <blockquote id="opening"></blockquote>
+          </article>
+          <article class="result-section two-col">
+            <div><h3>Neutral questions</h3><ul id="questions"></ul></div>
+            <div><h3>Recommended next steps</h3><ol id="nextSteps"></ol></div>
+          </article>
+          <article class="result-section decision-boundary">
+            <h3>Decision boundary</h3>
+            <p id="boundary"></p>
+          </article>
+          <button class="secondary" id="copyBrief">Copy brief</button>
+        </div>
+      </section>
+    </div>
+
+    <section class="bottom-grid">
+      <article class="mini-card"><p class="eyebrow">WHY THIS IS A PRODUCT</p><h3>Workflow, not chat</h3><p>It captures the facts that matter, generates a repeatable output and leaves a traceable path for review.</p></article>
+      <article class="mini-card"><p class="eyebrow">SAFETY</p><h3>Escalation by design</h3><p>High-risk topics are routed to specialist support rather than treated as an ordinary manager coaching request.</p></article>
+      <article class="mini-card"><p class="eyebrow">SUCCESS METRIC</p><h3>Better preparation</h3><p>Measure manager preparation time, right escalation rate, HR rework and confidence before critical conversations.</p></article>
+    </section>
+  </main>
+  <script src="app.js"></script>
+</body>
+</html>

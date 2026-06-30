@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Workforce Planning Copilot</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="topbar">
+    <a href="../" class="brand">HR + AI Portfolio</a>
+    <span class="environment">Interactive prototype · synthetic aggregate data</span>
+  </header>
+
+  <main class="shell">
+    <section class="intro">
+      <p class="eyebrow">PRODUCT 02 · WORKFORCE STRATEGY</p>
+      <h1>Workforce Planning Copilot</h1>
+      <p>Turn approved workforce signals into a sharper decision discussion for HR, Finance and business leaders. The product identifies trade-offs, tests scenarios and creates an owned action list.</p>
+      <div class="guardrail"><span>Aggregate data</span><span>•</span><span>Scenario planning</span><span>•</span><span>Executive recommendation</span><span>•</span><span>Human decision required</span></div>
+    </section>
+
+    <section class="dashboard-head">
+      <div class="dashboard-title"><p class="eyebrow">APRIL 2026 WORKFORCE REVIEW</p><h2>Commercial & Operations organization</h2><p>Fictional data set created for this prototype. Figures are illustrative and contain no personal information.</p></div>
+      <div class="action-box"><label for="scenario">Decision scenario</label><select id="scenario"><option value="focus">Prioritize strategic roles</option><option value="freeze">Freeze non-critical hiring for 90 days</option><option value="stabilize">Stabilize attrition in critical teams</option></select><button id="analyze">Generate executive recommendation <span>→</span></button></div>
+    </section>
+
+    <section class="kpis" aria-label="Key workforce indicators">
+      <article><p>Headcount</p><h3>482</h3><span class="subtle">+18 vs. plan</span></article>
+      <article><p>Open roles</p><h3>31</h3><span class="subtle danger">11 aged over 45 days</span></article>
+      <article><p>Regrettable attrition</p><h3>8.4%</h3><span class="subtle danger">Target: ≤ 6.0%</span></article>
+      <article><p>Payroll vs. plan</p><h3>+3.7%</h3><span class="subtle">Driven by overtime + contractors</span></article>
+      <article><p>Ready successors</p><h3>41%</h3><span class="subtle danger">Target: ≥ 60%</span></article>
+    </section>
+
+    <section class="main-grid">
+      <article class="panel signals">
+        <div class="section-title"><div><p class="eyebrow">WORKFORCE SIGNALS</p><h2>Where attention is needed</h2></div><span class="badge">Last 90 days</span></div>
+        <div class="table-wrap"><table><thead><tr><th>Team</th><th>HC</th><th>Open roles</th><th>Attrition</th><th>Avg. vacancy</th><th>Succession</th></tr></thead><tbody>
+          <tr><td><strong>Field Sales</strong><span>Revenue engine</span></td><td>146</td><td>12</td><td><b class="red">10.8%</b></td><td>52 days</td><td><b class="amber">35%</b></td></tr>
+          <tr><td><strong>Key Accounts</strong><span>Strategic customers</span></td><td>44</td><td>4</td><td>4.1%</td><td><b class="red">61 days</b></td><td>68%</td></tr>
+          <tr><td><strong>Operations</strong><span>Fulfilment & quality</span></td><td>171</td><td>8</td><td><b class="red">9.6%</b></td><td>38 days</td><td><b class="red">31%</b></td></tr>
+          <tr><td><strong>Product & Data</strong><span>Digital enablement</span></td><td>51</td><td>5</td><td>5.2%</td><td><b class="red">67 days</b></td><td>52%</td></tr>
+          <tr><td><strong>Shared Services</strong><span>Enabling functions</span></td><td>70</td><td>2</td><td>6.0%</td><td>31 days</td><td>57%</td></tr>
+        </tbody></table></div>
+        <div class="signal-footer"><span class="legend"><i class="dot red-dot"></i> Material risk</span><span class="legend"><i class="dot amber-dot"></i> Watchlist</span><span class="legend"><i class="dot green-dot"></i> Within threshold</span></div>
+      </article>
+
+      <article class="panel output-panel" aria-live="polite">
+        <div class="section-title"><div><p class="eyebrow">COPILOT OUTPUT</p><h2>Executive recommendation</h2></div><span id="status" class="badge neutral">Ready</span></div>
+        <div id="empty" class="empty-state"><div class="empty-icon">↗</div><h3>From workforce data to a decision agenda.</h3><p>Choose a scenario and generate an executive-ready recommendation that separates facts, trade-offs and actions.</p></div>
+        <div id="result" hidden>
+          <div class="headline" id="headline"></div>
+          <section class="result-section"><h3>Signals observed</h3><ul id="signalsList"></ul></section>
+          <section class="result-section"><h3>Trade-offs to manage</h3><ul id="tradeoffsList"></ul></section>
+          <section class="result-section actions"><h3>Prioritized actions</h3><div id="actionsList"></div></section>
+          <section class="result-section assumptions"><h3>Assumptions to validate</h3><ul id="assumptionsList"></ul></section>
+          <section class="boundary"><h3>Decision boundary</h3><p>These are planning recommendations based on fictional aggregate data. Budget approvals, organizational changes and individual employment actions require the relevant business, Finance and HR decision-makers.</p></section>
+          <button class="secondary" id="copyRecommendation">Copy recommendation</button>
+        </div>
+      </article>
+    </section>
+
+    <section class="insight-grid">
+      <article class="insight-card"><p class="eyebrow">PRODUCT VALUE</p><h3>A shared view of the trade-offs</h3><p>It gives HR, Finance and business leaders the same starting point before debating headcount, cost or hiring.</p></article>
+      <article class="insight-card"><p class="eyebrow">MODEL DESIGN</p><h3>Facts, assumptions and recommendations stay separate</h3><p>That separation makes the output easier to challenge, validate and explain in an executive forum.</p></article>
+      <article class="insight-card"><p class="eyebrow">SUCCESS METRIC</p><h3>Faster, better workforce decisions</h3><p>Measure planning cycle time, vacancy aging, forecast accuracy, priority-role coverage and payroll variance.</p></article>
+    </section>
+  </main>
+  <script src="app.js"></script>
+</body>
+</html>
